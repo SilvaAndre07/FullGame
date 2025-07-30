@@ -1,0 +1,288 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    transition: height 0.3s ease;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+}
+
+nav ul li a:hover {
+    color: #5b78c7;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 20px;
+    background-image: url('images/background-form.jpg');
+    background-size: cover;
+    background-position-x: left;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    gap: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    height: auto;
+    width: 450px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: fadeInUp 1s ease;
+}
+
+.formulario:hover {
+    transform: scale(1.02);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.formulario input {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.formulario input:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00c6fb;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.campo label {
+    width: 120px;
+    font-weight: bold;
+}
+
+.campo input {
+    flex: 1;
+}
+
+.campoImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.hiddenImg {
+    display: none;
+  }
+  
+.imgContainer {
+    display: flex;
+    overflow: auto;
+    max-height: 180px;
+    max-width: 360px;
+}
+
+.imgContainer img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+}
+
+.btnImg {
+    padding: 15px 40px;
+    background: linear-gradient(to right, #003366, #00aaff);
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 45px; /* Added to move it 20px to the right */
+}
+
+.btnImg:hover {
+    background: linear-gradient(to right, #0055aa, #00c6fb);
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+
+
+
+.enviar {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #2f00ffda;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-weight: bold;
+}
+
+.enviar:hover {
+    background-color: #0040a0;
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.rodape>div {
+    flex: 1;
+    margin: 0 100px;
+}
+
+.rodape h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.rodape p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.redes-sociais a {
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.redes-sociais img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.redes-sociais img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+footer h2 {
+    color: #0040a0;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

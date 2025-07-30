@@ -1,0 +1,30 @@
+.main{
+    background-color: aqua;
+    width: 100%;
+    height: auto;
+}
+
+.cardsContainer{
+    background-color: #e72525;
+    width: 1400px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card{
+    background-color: brown;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgJogo{
+    width: 150px;
+    height: auto;
+}
