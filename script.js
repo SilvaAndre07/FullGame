@@ -1,6 +1,6 @@
 document.getElementById("btnnav").addEventListener("click", function () {
-    //window.location.href = "home.html";
-    limparLocalStorage();
+    window.location.href = "home.html";
+    //limparLocalStorage();
 });
 
 document.getElementById("enviar").addEventListener("click", registerGame)
@@ -76,6 +76,7 @@ function obterImagem() {
     localStorage.setItem('jogos', JSON.stringify(jogos));
 
     console.log(jogos)
+    window.location.href = "home.html";
   }
 
   function limparLocalStorage() {
