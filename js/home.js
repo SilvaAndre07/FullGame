@@ -113,7 +113,6 @@ function criarCard(jogo) {
   var card = document.createElement("div")
   card.classList.add("game-card")
 
-  // Default image if none provided
   const imageUrl = jogo.imagem || `/placeholder.svg?height=200&width=300&query=game cover ${jogo.jogo}`
 
   card.innerHTML = `
@@ -173,35 +172,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  if (!localStorage.getItem("jogos")) {
-    const sampleGames = [
-      {
-        jogo: "Cyberpunk 2077",
-        horas: "45",
-        modalidade: "Single Player",
-        plataforma: "PC",
-        genero: "RPG",
-        imagem: "/placeholder.svg?height=200&width=300",
-      },
-      {
-        jogo: "Valorant",
-        horas: "120",
-        modalidade: "Multiplayer",
-        plataforma: "PC",
-        genero: "FPS",
-        imagem: "/placeholder.svg?height=200&width=300",
-      },
-      {
-        jogo: "The Witcher 3",
-        horas: "80",
-        modalidade: "Single Player",
-        plataforma: "PC",
-        genero: "RPG",
-        imagem: "/placeholder.svg?height=200&width=300",
-      },
-    ]
-
-    localStorage.setItem("jogos", JSON.stringify(sampleGames))
-    location.reload() // Reload to show sample data
   }
-})
+)
