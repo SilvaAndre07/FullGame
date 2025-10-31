@@ -1,3 +1,7 @@
+/*==========================================================================
+    Estilos Gerais
+  ==========================================================================*/
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -9,6 +13,26 @@ body {
     box-sizing: border-box;
 }
 
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 20px;
+    background-image: url('../images/Backgrounds/background-form.jpg');
+    background-size: cover;
+    background-position-x: left;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* ==========================================================================
+    Cabeçalho e Navegação
+  ========================================================================== */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -17,6 +41,7 @@ header {
     color: #fff;
     padding: 15px 30px;
 }
+
 
 .logo {
     display: flex;
@@ -59,22 +84,9 @@ nav ul li a:hover {
     color: #5b78c7;
 }
 
-.main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    gap: 20px;
-    background-image: url('images/background-form.jpg');
-    background-size: cover;
-    background-position-x: left;
-    background-position-y: top;
-    background-repeat: no-repeat;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
+/* ==========================================================================
+    Formulário de Registro
+  ========================================================================== */
 
 .formulario {
     display: flex;
@@ -166,9 +178,7 @@ nav ul li a:hover {
     transition: transform 0.3s ease;
 }
 
-
-
-
+/* Botão Enviar */
 .enviar {
     color: #ffffff;
     text-decoration: none;
@@ -184,6 +194,26 @@ nav ul li a:hover {
     background-color: #0040a0;
     transform: translateY(-2px);
 }
+
+.excluir {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #ff0000da;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.excluir:hover {
+    background-color: #a00000;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+    Rodapé
+  ========================================================================== */
 
 footer {
     background-color: #000000;
@@ -246,7 +276,10 @@ footer h2 {
     color: #0040a0;
 }
 
-
+/* ==========================================================================
+    Animações
+  ========================================================================== */
+  
 @keyframes fadeIn {
     from {
         opacity: 0;

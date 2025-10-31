@@ -5,15 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FullGame</title>
-  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="../images/SysIcons/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/form.css">
 </head>
 
 <body>
 
+  <!-- Cabeçalho -->
   <header>
     <div class="logo">
-      <img src="img/logo.png" alt="Logo do Curso">
+      <img src="../images/SysIcons/logo.png" alt="Logo do Curso">
     </div>
     <nav>
       <ul id="btnnav" class="nav-links">
@@ -22,8 +23,13 @@
     </nav>
   </header>
 
+  <!-- Conteúdo Principal -->
   <main class="main">
+
+    <!--- Formulário -->
     <form class="formulario">
+
+      <!-- Campo de Escolher o Jogo -->
       <div class="campo">
         <label for="jogo">Jogo</label>
         <input type="text" id="jogo" name="jogo" list="lista-jogos" placeholder="Nome do jogo">
@@ -37,11 +43,13 @@
         </datalist>
       </div>
 
+      <!-- Campo de Horas -->
       <div class="campo">
         <label for="horas">Horas</label>
         <input type="number" id="horas" placeholder="Quantas horas?">
       </div>
 
+      <!-- Campo de Modalidade -->
       <div class="campo">
         <label for="modalidade">Modalidade</label>
         <input type="text" id="modalidade" name="modalidade" list="lista-modalidade" placeholder="Escolha a modalidade">
@@ -52,6 +60,7 @@
         </datalist>
       </div>
 
+      <!-- Campo de Imagem -->
       <div class="campo">
         <label for="prova">Prova de Conclusão</label>
         <div class="campoImg">
@@ -65,8 +74,12 @@
       </div>
     </div>
     </form>
+
     <a id= "enviar" class="enviar">Enviar</a>
+
   </main>
+
+  <!-- Rodapé -->
   <footer>
     <div class="rodape">
       <div class="contato">
@@ -77,15 +90,15 @@
       <div class="redes-sociais">
         <h2>Redes Sociais</h2>
         <a href="https://www.facebook.com/seuPerfil" target="_blank">
-          <img src="img/icon/discord.png" alt="Discord">
+          <img src="../images/IconsSocial/discord.png" alt="Discord">
         </a>
 
         <a href="https://www.instagram.com/neymarjr/" target="_blank">
-          <img src="img/icon/instagram.png" alt="Instagram">
+          <img src="../images/IconsSocial/instagram.png" alt="Instagram">
         </a>
 
         <a href="https://www.linkedin.com/in/mario-sergio-cortella/" target="_blank">
-          <img src="img/icon/youtube.png" alt="LinkedIn">
+          <img src="../images/IconsSocial/youtube.png" alt="LinkedIn">
         </a>
       </div>
     </div>
@@ -94,7 +107,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../js/form.js"></script>
 </body>
 
 </html>

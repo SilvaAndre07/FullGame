@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FullGame</title>
+  <link rel="shortcut icon" href="../images/SysIcons/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/form.css">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">
+      <img src="../images/SysIcons/logo.png" alt="Logo do Curso">
+    </div>
+    <nav>
+      <ul id="btnnav" class="nav-links">
+        <li><a>Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="main">
+
+    <!--- Formulário -->
+    <form class="formulario">
+
+      <!-- Campo de Escolher o Jogo -->
+      <div class="campo">
+        <label for="jogo">Jogo</label>
+        <input type="text" id="jogo-lista" name="jogo" list="lista-jogos" placeholder="Nome do jogo">
+        <datalist id="lista-jogos">
+          <option value="The Witcher 3">
+          <option value="God of War">
+          <option value="Red Dead Redemption 2">
+          <option value="Hollow Knight">
+          <option value="Celeste">
+          <option value="Cyberpunk 2077">
+        </datalist>
+      </div>
+
+      <!-- Campo de Horas -->
+      <div class="campo">
+        <label for="horas">Horas</label>
+        <input type="number" id="horas" placeholder="Quantas horas?">
+      </div>
+
+      <!-- Campo de Modalidade -->
+      <div class="campo">
+        <label for="modalidade">Modalidade</label>
+        <input type="text" id="modalidade" name="modalidade" list="lista-modalidade" placeholder="Escolha a modalidade">
+        <datalist id="lista-modalidade">
+          <option value="História">
+          <option value="História + Extras">
+          <option value="100%">
+        </datalist>
+      </div>
+
+      <!-- Campo de Imagem -->
+      <div class="campo">
+        <label for="prova">Prova de Conclusão</label>
+        <div class="campoImg">
+        <div id="btnImg" class="btnImg">
+          <span>Selecionar Imagem</span>
+        </div>
+        <div class="imgContainer">
+          <img src="" id="imgForm" class = "HiddenImg">
+        </div>
+        <input type="file" id="fileInput" style="display:none;">
+      </div>
+    </div>
+    </form>
+
+    <a id= "alterar" class="enviar">Alterar</a>
+
+    <a id= "excluir" class="excluir">Excluir</a>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="rodape">
+      <div class="contato">
+        <h2>Contato</h2>
+        <p>Email: ninguemxd07@gmail.com</p>
+        <p>Telefone: (43) 98407-8727</p>
+      </div>
+      <div class="redes-sociais">
+        <h2>Redes Sociais</h2>
+        <a href="https://www.facebook.com/seuPerfil" target="_blank">
+          <img src="../images/IconsSocial/discord.png" alt="Discord">
+        </a>
+
+        <a href="https://www.instagram.com/neymarjr/" target="_blank">
+          <img src="../images/IconsSocial/instagram.png" alt="Instagram">
+        </a>
+
+        <a href="https://www.linkedin.com/in/mario-sergio-cortella/" target="_blank">
+          <img src="../images/IconsSocial/youtube.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 FullGame - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/edit.js"></script>
+</body>
+
+</html>

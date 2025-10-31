@@ -1,122 +1,39 @@
-
-const THREE = window.THREE
-
-
-let scene, camera, renderer, particles
-
-function initThreeJS() {
-  scene = new THREE.Scene()
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-  renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("bg-canvas"),
-    alpha: true,
-  })
-
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  renderer.setPixelRatio(window.devicePixelRatio)
-
-
-  createParticleSystem()
-
-  camera.position.z = 5
-
-
-  animate()
-}
-
-function createParticleSystem() {
-  const geometry = new THREE.BufferGeometry()
-  const particleCount = 1000
-
-  const positions = new Float32Array(particleCount * 3)
-  const colors = new Float32Array(particleCount * 3)
-
-  for (let i = 0; i < particleCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 20
-    positions[i + 1] = (Math.random() - 0.5) * 20
-    positions[i + 2] = (Math.random() - 0.5) * 20
-
-    const color = new THREE.Color()
-    color.setHSL(Math.random() * 0.2 + 0.5, 1, 0.5)
-    colors[i] = color.r
-    colors[i + 1] = color.g
-    colors[i + 2] = color.b
-  }
-
-  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3))
-  geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3))
-
-  const material = new THREE.PointsMaterial({
-    size: 0.05,
-    vertexColors: true,
-    transparent: true,
-    opacity: 0.8,
-  })
-
-  particles = new THREE.Points(geometry, material)
-  scene.add(particles)
-}
-
-function animate() {
-  requestAnimationFrame(animate)
-
-  // Rotate particles
-  if (particles) {
-    particles.rotation.x += 0.001
-    particles.rotation.y += 0.002
-  }
-
-  renderer.render(scene, camera)
-}
-
-function createHTMLParticles() {
-  const particlesContainer = document.getElementById("particles")
-
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      const particle = document.createElement("div")
-      particle.className = "particle"
-      particle.style.left = Math.random() * 100 + "%"
-      particle.style.animationDuration = Math.random() * 3 + 3 + "s"
-      particle.style.background = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`
-
-      particlesContainer.appendChild(particle)
-
-      setTimeout(() => {
-        particle.remove()
-      }, 6000)
-    }
-  }, 300)
-}
-
+// Recupera os jogos do localStorage
 const jogos = JSON.parse(localStorage.getItem("jogos")) || []
 
+// Função para renderizar os jogos na página
 function renderizarJogos(jogos) {
   var gamesContainer = document.getElementById("gamesContainer")
   var emptyState = document.getElementById("emptyState")
 
+  // Se não houver jogos, exibe o estado vazio
   if (!jogos || jogos.length === 0) {
     emptyState.style.display = "block"
     return
   }
 
+  // Se houver jogos, esconde o estado vazio e exibe os jogos
   emptyState.style.display = "none"
   gamesContainer.innerHTML = ""
 
+  // Cria e adiciona os cards dos jogos
   for (let i = 0; i < jogos.length; i++) {
     var card = criarCard(jogos[i])
     gamesContainer.appendChild(card)
   }
 }
 
+// Função para criar um card de jogo
 function criarCard(jogo) {
   var card = document.createElement("div")
   card.classList.add("game-card")
 
-  const imageUrl = jogo.imagem || `/placeholder.svg?height=200&width=300&query=game cover ${jogo.jogo}`
+  // Define a URL da imagem, usando uma imagem padrão se não houver
+  const imageUrl = jogo.imagem || `../images/SysIcons/NoGameImage.jpg cover ${jogo.jogo}`
 
+  // Preenche o conteúdo do card
   card.innerHTML = `
-        <img src="${imageUrl}" alt="${jogo.jogo}" class="game-image" onerror="this.src='/placeholder.svg?height=200&width=300'">
+        <img src="${imageUrl}" alt="${jogo.jogo}" class="game-image" onerror="this.src='../images/SysIcons/NoGameImage.jpg'">
         <h3 class="game-title">${jogo.jogo || "Jogo Sem Nome"}</h3>
         <div class="game-info">
             <div class="game-stat">
@@ -148,18 +65,20 @@ function criarCard(jogo) {
                 : ""
             }
         </div>
-    `
+    `;
 
-  return card
+    // Adiciona o evento de clique para redirecionar à página de edição
+    card.addEventListener("click", function(){
+      //console.log("id do jogo clicado:", jogo.id)
+      window.location.href = `../html/edit.html?id=${jogo.id}`
+    })
+
+  return card;
 }
 
 
+// Inicializa a renderização quando o conteúdo da página estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
-
-  initThreeJS()
-
-
-  createHTMLParticles()
 
   renderizarJogos(jogos)
 
@@ -174,3 +93,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 )
+

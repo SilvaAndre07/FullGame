@@ -1,4 +1,7 @@
-* {
+/* ==========================================================================
+   Reset e Estilos Globais
+   ========================================================================== */
+   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -16,7 +19,9 @@ body {
     overflow: hidden;
 }
 
-
+/* ==========================================================================
+    Cabeçalho e Navegação
+   ========================================================================== */
 header {
     width: 100%;
     position: fixed;
@@ -49,6 +54,7 @@ header .container .logo {
     cursor: pointer;
 }
 
+/* Ícones Sociais */
 header .container .social i {
     border: 2px solid white;
     padding: 13px 13px;
@@ -63,6 +69,7 @@ header .container .social i:hover {
     color: #777;
 }
 
+/* Navegação Principal */
 header .container nav ul {
     display: flex;
     align-items: center;
@@ -76,6 +83,7 @@ header .container nav ul li {
     position: relative;
 }
 
+/* Efeito de Sublinhado */
 header .container nav ul li::after {
     position: absolute;
     content: "";
@@ -102,13 +110,16 @@ header .container nav ul li:hover::after {
     transition: height 0.3s ease;
 }
 
-/* start content */
+/* ==========================================================================
+   Área de Conteúdo (Slides)
+   ========================================================================== */
 .content {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
+/* Imagens do Slide */
 .slide img {
     position: absolute;
     width: 100%;
@@ -125,6 +136,7 @@ header .container nav ul li:hover::after {
     transform: scale(1.05)
 }
 
+/* Painel Esquerdo */
 .slide .left_slide {
     position: absolute;
     width: 50%;
@@ -172,6 +184,7 @@ header .container nav ul li:hover::after {
     font-size: 18px;
 }
 
+/* Botão do Painel Esquerdo */
 .slide .left_slide .info .btn {
     outline: none;
     border: 2px solid white;
@@ -197,6 +210,7 @@ header .container nav ul li:hover::after {
 }
 
 
+/* Painel Direito */
 .slide .right_slide {
     position: absolute;
     top: 0;
@@ -235,6 +249,9 @@ header .container nav ul li:hover::after {
     transform: translate(50px, -60px);
 }
 
+/* ==========================================================================
+   Botão de Navegação Fixa
+   ========================================================================== */
 .nextPage {
     padding: 15px 25px;
     background-color: white;
@@ -270,16 +287,19 @@ header .container nav ul li:hover::after {
     color: white;
 }
 
+/* ==========================================================================
+    Animações
+   ========================================================================== */
 @keyframes fadeSlideDown {
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
     from {
-      opacity: 0;
-      transform: translateY(-50px);
+        opacity: 0;
+        transform: translateY(-50px);
     }
-  }
+}
 
 @keyframes pulse {
     0% {
