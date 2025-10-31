@@ -2,23 +2,27 @@
 const jogos = JSON.parse(localStorage.getItem("jogos")) || []
 
 // Função para renderizar os jogos na página
-function renderizarJogos(jogos) {
+function renderizarJogos(jogosList) {
   var gamesContainer = document.getElementById("gamesContainer")
-  var emptyState = document.getElementById("emptyState")
 
-  // Se não houver jogos, exibe o estado vazio
-  if (!jogos || jogos.length === 0) {
-    emptyState.style.display = "block"
+  // Se não houver jogos, exibe o estado vazio (cria o markup dentro do container)
+  if (!jogosList || jogosList.length === 0) {
+    gamesContainer.innerHTML = `
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🎮</div>
+        <h3>Nenhum jogo encontrado</h3>
+        <p>Adicione seus jogos favoritos para começar!</p>
+      </div>
+    `
     return
   }
 
-  // Se houver jogos, esconde o estado vazio e exibe os jogos
-  emptyState.style.display = "none"
+  // Se houver jogos, exibe os jogos
   gamesContainer.innerHTML = ""
 
   // Cria e adiciona os cards dos jogos
-  for (let i = 0; i < jogos.length; i++) {
-    var card = criarCard(jogos[i])
+  for (let i = 0; i < jogosList.length; i++) {
+    var card = criarCard(jogosList[i])
     gamesContainer.appendChild(card)
   }
 }
@@ -44,27 +48,6 @@ function criarCard(jogo) {
                 <span class="stat-label">🎮 Modalidade:</span>
                 <span class="stat-value">${jogo.modalidade || "N/A"}</span>
             </div>
-            ${
-              jogo.plataforma
-                ? `
-            <div class="game-stat">
-                <span class="stat-label">📱 Plataforma:</span>
-                <span class="stat-value">${jogo.plataforma}</span>
-            </div>
-            `
-                : ""
-            }
-            ${
-              jogo.genero
-                ? `
-            <div class="game-stat">
-                <span class="stat-label">🏷️ Gênero:</span>
-                <span class="stat-value">${jogo.genero}</span>
-            </div>
-            `
-                : ""
-            }
-        </div>
     `;
 
     // Adiciona o evento de clique para redirecionar à página de edição
@@ -79,18 +62,34 @@ function criarCard(jogo) {
 
 // Inicializa a renderização quando o conteúdo da página estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
-
+  // Renderiza todos os jogos inicialmente
   renderizarJogos(jogos)
 
+  // Configura a busca/filter
+  const searchInput = document.getElementById('searchInput')
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase()
+      if (!q) {
+        renderizarJogos(jogos)
+      } else {
+        const filtered = jogos.filter(j => {
+          const nome = (j.jogo || "").toLowerCase()
+          const modalidade = (j.modalidade || "").toLowerCase()
+          return nome.includes(q) || modalidade.includes(q)
+        })
+        renderizarJogos(filtered)
+      }
+    })
+  }
 
   window.addEventListener("resize", () => {
-    if (camera && renderer) {
+    if (typeof camera !== 'undefined' && typeof renderer !== 'undefined' && camera && renderer) {
       camera.aspect = window.innerWidth / window.innerHeight
       camera.updateProjectionMatrix()
       renderer.setSize(window.innerWidth, window.innerHeight)
     }
   })
 
-  }
-)
+})
 
